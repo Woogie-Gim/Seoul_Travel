@@ -1,0 +1,212 @@
+.main {
+  width: 100%;
+  height: auto;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  background-image: url("../assets/1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main2 {
+  width: 100%;
+  height: 630px;
+  padding-top: 3%;
+  padding-bottom: 5%;
+  background-image: url("../assets/1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+.main2 p {
+  font-size: 70px;
+  width: 500px;
+  margin: auto;
+  font-weight: bold;
+  text-align: center;
+}
+
+.back {
+  width: 90%;
+  margin: 0 auto;
+  border: 0;
+  border-radius: 30px;
+  background-color: white;
+}
+
+.back1 {
+  display: flex;
+  flex-grow: 1;
+  width: auto;
+  text-align: center;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.back1 h1 {
+  cursor: pointer;
+}
+
+.search {
+  width: 800px;
+  height: 50px;
+  margin-top: 10px;
+  margin-left: 150px;
+  padding-left: 20px;
+  border: 0;
+  border-radius: 30px;
+}
+
+.searchBtn {
+  margin-left: 10px;
+  width: 50px;
+  height: 50px;
+  border: 0;
+  border-radius: 30px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.back2 {
+  margin: auto;
+  text-align: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+
+.back2 h3 {
+  font-size: 30px;
+  font-weight: bold;
+  color: #8a8989;
+  margin-top: 20px;
+  margin-bottom: 50px;
+}
+
+.back3 {
+  width: 70%;
+  margin: auto;
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+
+.back4 {
+  width: 90%;
+  margin: 0 auto;
+}
+
+.item {
+  border: 1px solid lightgray;
+  border-radius: 15px;
+  margin: 20px;
+  width: 300px;
+  background-color: white;
+  text-align: center;
+}
+
+.image {
+  width: 300px;
+  height: 200px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  cursor: pointer;
+}
+
+.item:hover {
+  box-shadow: 1px 1px 7px #005bff;
+  text-decoration: underline #464646;
+  text-underline-position: under;
+}
+
+.festivalName {
+  text-decoration: none;
+  margin: 15px;
+  font-size: 17px;
+  color: #464646;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+.categoryBox {
+  display: flex;
+  flex-wrap: wrap;
+  text-align: left;
+  font-size: 0;
+  margin: 0 auto;
+  width: 90%;
+  padding-top: 15px;
+}
+
+.categoryItem {
+  width: 19.5%;
+  display: inline-block;
+  margin-right: 5px;
+  margin-bottom: 5px;
+  text-align: center;
+  word-break: keep-all;
+  vertical-align: top;
+  box-sizing: border-box;
+  border-radius: 10px 10px 0 0;
+  background-color: #ccc;
+
+}
+
+.categoryItem:hover {
+  box-shadow: 1px 1px 7px #005bff;
+}
+
+.categoryItem button {
+  padding: 10px;
+  height: 100%;
+  box-sizing: border-box;
+  display: block;
+  width: 95%;
+  text-align: center;
+  transition: .5s;
+  cursor: pointer;
+  background-color: transparent;
+  border: 0;
+  font-size: 17px;
+  color: #464646;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+.categoryItem button:hover {
+  color: #005bff;
+}
+
+.noResult {
+  margin: 0 auto;
+  margin-top: 80px;
+  text-align: center;
+  width: 80%;
+  height: 370px;
+  font-size: 50px;
+  font-weight: bold;
+}
+
+.activeButton {
+  background-color: #005bff;
+}
+
+.activeButton button {
+  color: white !important;
+}
+
+.subTitle {
+  margin-left: 80px;
+  font-size: 30px;
+  color: #000;
+  padding: 30px 35px 30px 35px;
+}
+
+.subTitle span {
+  font-style: italic;
+  color: #ccc;
+  font-size: 20px;
+  padding-left: 4px;
+}
