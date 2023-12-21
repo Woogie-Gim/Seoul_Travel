@@ -103,6 +103,7 @@
   border-radius: 15px;
   margin: 20px;
   width: 300px;
+  height: 280px;
   background-color: white;
   text-align: center;
 }
@@ -209,4 +210,35 @@
   color: #ccc;
   font-size: 20px;
   padding-left: 4px;
+}
+
+.pagination {
+  margin: 30px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 50px;
+}
+
+.nav_buttons button {
+  padding: 8px 12px;
+  margin: 0 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  cursor: pointer;
+  font-size: 16px;
+  color: #464646;
+  font-family: "Noto Sans KR", sans-serif;
+  font-weight: 600;
+}
+
+.nav_buttons button:hover {
+  background-color: #eee;
+}
+
+.nav_buttons button.current {
+  font-weight: bold;
+  background-color: #ccc;
+  color: #fff;
 }
