@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef, useCallback } from 'react';
-import { Link } from 'react-router-dom';
 import '../css/Home.css';
 
 function Home() {
@@ -46,18 +45,6 @@ function Home() {
 
   return (
     <div>
-      <header>
-        <nav className="global-nav">
-          <div className="global-nav-links">
-            <a href="#section" className="product-name">
-              서울 여행
-            </a>
-            <Link to="/touristspot">관광명소</Link>
-            <Link to="/festival">축제</Link>
-          </div>
-        </nav>
-      </header>
-
       {loading ? (
         <div className="loading-screen">
           <img src="./images/1.jpg" alt="loading" />
