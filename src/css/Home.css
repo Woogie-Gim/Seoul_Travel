@@ -10,7 +10,6 @@ body {
     color: rgb(29, 29, 31);
     letter-spacing: -0.05em;
     background-color: white;
-    height: 210vh;
 }
 
 p {
@@ -137,6 +136,7 @@ a {
     justify-content: center;
     background: url('../assets/festival button.gif') no-repeat;
     margin-left: 50px;
+    margin-bottom: 50px;
     background-size: cover;
     background-position: center center;
     opacity: 0.8;
