@@ -135,144 +135,160 @@ function TouristSpot() {
 
   return (
     <div className="TouristSpot">
-      {/* 1. 검색 기능 */}
-      <form onSubmit={hadleSearchSubmit}>
-        <input
-          type="text"
-          value={search}
-          onChange={handleSearch}
-          placeholder="가고 싶은 관광지를 찾아보세요!"
-        />
-        <button type="submit">검색</button>
-      </form>
-
-      {/* 2. 각 구 선택 버튼 */}
-      <div className="gu-buttons">
-        {Gu.map((gu, index) => (
-          <button key={index} onClick={() => handleGuSelection(gu)}>
-            {gu}
-          </button>
-        ))}
+      <div>
+        {/* 1. 검색 기능 */}
+        <form onSubmit={hadleSearchSubmit}>
+          <input
+            type="text"
+            value={search}
+            onChange={handleSearch}
+            placeholder="가고 싶은 관광지를 찾아보세요 !"
+          />
+          <button type="submit">검색</button>
+        </form>
       </div>
 
-      {/* 3. 관광지 리스트 렌더링 */}
-      {search.length > 0 && searchResult.length === 0 ? (
-        <div className="search-count">
-          <h3>🔎 전체 결과 : 0 개</h3>
+      <div className="main">
+        {/* 2. 각 구 선택 버튼 */}
+        <div className="gu-category">
+          <span>Category</span>
         </div>
-      ) : (
-        <div>
+        <div className="gu-buttons">
+          {Gu.map((gu, index) => (
+            <button
+              key={index}
+              type="button"
+              onClick={() => handleGuSelection(gu)}
+              className="guItem"
+            >
+              {gu}
+            </button>
+          ))}
+        </div>
+
+        {/* 3. 관광지 리스트 렌더링 */}
+        {search.length > 0 && searchResult.length === 0 ? (
           <div className="search-count">
-            <h3>🔎 검색 결과 : {totalItems} 개</h3>
+            <h3>🔎 검색 결과 : 0 개</h3>
           </div>
-          <ul className="spots-list">
-            {itemsToShow.map((spot, index) => (
-              <li
-                key={index}
-                className="spot-item"
-                onClick={() => handleItemClick(spot)}
-              >
-                {spot.firstimage ? (
-                  <img
-                    src={spot.firstimage}
-                    alt={spot.title}
-                    className="spot-image"
-                  />
-                ) : (
-                  <img
-                    src={placeholderImage}
-                    alt="No Image"
-                    className="spot-image"
-                  />
-                )}
-                <p>{spot.title}</p>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
-
-      {/* 4. 상세 정보 Modal */}
-      {selectedSpot && showModal && (
-        <div className="modal" onClick={handleCloseModal}>
-          <div className="modal-content">
-            <h3>{selectedSpot.title}</h3>
-            <h5>
-              주소 : {selectedSpot.addr1} {selectedSpot.addr2}
-            </h5>
-            {selectedSpot.zipcode && <h5>우편번호 : {selectedSpot.zipcode}</h5>}
-            {selectedSpot.firstimage && (
-              <img
-                src={selectedSpot.firstimage}
-                alt={selectedSpot.title}
-                className="spot-image"
-              />
-            )}
+        ) : (
+          <div>
+            <div className="search-count">
+              <h3>🔎 검색 결과 : {totalItems} 개</h3>
+            </div>
+            <ul className="spots-list">
+              {itemsToShow.map((spot, index) => (
+                <li
+                  key={index}
+                  className="spot-item"
+                  onClick={() => handleItemClick(spot)}
+                >
+                  {spot.firstimage ? (
+                    <img
+                      src={spot.firstimage}
+                      alt={spot.title}
+                      className="spot-image"
+                    />
+                  ) : (
+                    <img
+                      src={placeholderImage}
+                      alt="No Image"
+                      className="spot-image"
+                    />
+                  )}
+                  <p>{spot.title}</p>
+                </li>
+              ))}
+            </ul>
           </div>
-        </div>
-      )}
+        )}
 
-      {/* 5. 페이지네이션 */}
-      {search.length > 0 && searchResult.length === 0 ? null : (
-        <div className="pagination">
-          <div className="nav-buttons">
-            <button onClick={() => paginate(currentPage === 1 ? 1 : 1)}>
-              &lt;&lt;
-            </button>
-            <button
-              onClick={() => paginate(currentPage === 1 ? 1 : currentPage - 1)}
-            >
-              &lt;
-            </button>
+        {/* 4. 상세 정보 Modal */}
+        {selectedSpot && showModal && (
+          <div className="modal" onClick={handleCloseModal}>
+            <div className="modal-content">
+              <h3>{selectedSpot.title}</h3>
+              <h5>
+                주소 : {selectedSpot.addr1} {selectedSpot.addr2}
+              </h5>
+              {selectedSpot.zipcode && (
+                <h5>우편번호 : {selectedSpot.zipcode}</h5>
+              )}
+              {selectedSpot.firstimage && (
+                <img
+                  src={selectedSpot.firstimage}
+                  alt={selectedSpot.title}
+                  className="spot-image"
+                />
+              )}
+            </div>
+          </div>
+        )}
 
-            {Array.from(
-              { length: Math.ceil(totalItems / spotsPerPage) },
-              (_, i) => {
-                const startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
-                const endPage = Math.min(
-                  startPage + 4,
-                  Math.ceil(totalItems / spotsPerPage)
-                );
-                if (i + 1 >= startPage && i + 1 <= endPage) {
-                  return (
-                    <button
-                      key={i}
-                      onClick={() => paginate(i + 1)}
-                      className={currentPage === i + 1 ? "current" : ""}
-                    >
-                      {i + 1}
-                    </button>
-                  );
+        {/* 5. 페이지네이션 */}
+        {search.length > 0 && searchResult.length === 0 ? null : (
+          <div className="pagination">
+            <div className="nav-buttons">
+              <button onClick={() => paginate(currentPage === 1 ? 1 : 1)}>
+                &lt;&lt;
+              </button>
+              <button
+                onClick={() =>
+                  paginate(currentPage === 1 ? 1 : currentPage - 1)
                 }
-                return null;
-              }
-            )}
+              >
+                &lt;
+              </button>
 
-            <button
-              onClick={() =>
-                paginate(
-                  currentPage === Math.ceil(totalItems / spotsPerPage)
-                    ? currentPage
-                    : currentPage + 1
-                )
-              }
-            >
-              &gt;
-            </button>
-            <button
-              onClick={() =>
-                paginate(
-                  currentPage === Math.ceil(totalItems / spotsPerPage)
-                    ? currentPage
-                    : Math.ceil(totalItems / spotsPerPage)
-                )
-              }
-            >
-              &gt;&gt;
-            </button>
+              {Array.from(
+                { length: Math.ceil(totalItems / spotsPerPage) },
+                (_, i) => {
+                  const startPage = Math.floor((currentPage - 1) / 5) * 5 + 1;
+                  const endPage = Math.min(
+                    startPage + 4,
+                    Math.ceil(totalItems / spotsPerPage)
+                  );
+                  if (i + 1 >= startPage && i + 1 <= endPage) {
+                    return (
+                      <button
+                        key={i}
+                        onClick={() => paginate(i + 1)}
+                        className={currentPage === i + 1 ? "current" : ""}
+                      >
+                        {i + 1}
+                      </button>
+                    );
+                  }
+                  return null;
+                }
+              )}
+
+              <button
+                onClick={() =>
+                  paginate(
+                    currentPage === Math.ceil(totalItems / spotsPerPage)
+                      ? currentPage
+                      : currentPage + 1
+                  )
+                }
+              >
+                &gt;
+              </button>
+              <button
+                onClick={() =>
+                  paginate(
+                    currentPage === Math.ceil(totalItems / spotsPerPage)
+                      ? currentPage
+                      : Math.ceil(totalItems / spotsPerPage)
+                  )
+                }
+              >
+                &gt;&gt;
+              </button>
+            </div>
           </div>
-        </div>
-      )}
+        )}
+      </div>
     </div>
   );
 }

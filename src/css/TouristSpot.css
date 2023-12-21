@@ -2,70 +2,139 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
+  background-image: url("../assets/1.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  width: 100%;
+  height: auto;
+  padding-top: 3%;
 }
 
 .TouristSpot {
   width: 90%;
-  margin: 0 auto;
-  padding: 3% 0 5%;
+  margin: 5% 5% 3%;
   background-attachment: fixed;
   background-size: cover;
+  font-family: Arial, sans-serif;
 }
 
 /* 검색 기능 */
 form {
+  margin-top: 40px;
   text-align: center;
-  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 input[type="text"] {
-  width: 800px;
+  width: 80%;
+  max-width: 800px;
   height: 50px;
   margin-top: 10px;
-  margin-left: 150px;
   padding-left: 20px;
-  border: 0;
+  border: 1px solid #ddd;
   border-radius: 30px;
+  font-weight: 400;
+  font-family: "Noto Sans KR", sans-serif;
   background-color: #f9f9f9;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+input[type="text"]:hover {
+  background-color: transparent;
+  box-shadow: 1px 1px 7px #0077ff;
 }
 
 button[type="submit"] {
-  margin-left: 10px;
-  width: 50px;
+  width: 20%;
+  max-width: 60px;
   height: 50px;
-  border: 0;
+  margin-left: 10px;
+  border: 1px solid #ddd;
   border-radius: 30px;
+  font-weight: 300;
+  font-family: "Noto Sans KR", sans-serif;
   background-color: #f9f9f9;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
   cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: transparent;
+  box-shadow: 1px 1px 7px #0077ff;
+  color: #005bff;
 }
 
 /* 구 선택 버튼 */
+.main {
+  max-width: 90%;
+  margin: 3.5% 5% 0;
+  padding: 3% 0 1%;
+  color: #000;
+  border-radius: 50px;
+  background-color: rgba(255, 255, 255, 0.5);
+  background-attachment: fixed;
+  background-size: cover;
+}
+.gu-category {
+  display: flex;
+  align-items: center;
+  font-size: 30px;
+  font-style: italic;
+  color: #000;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  padding: 20px 20px;
+  margin-left: 100px;
+}
+
 .gu-buttons {
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  flex-wrap: wrap;
+  font-size: 0;
+  margin: 0 auto;
   margin-bottom: 20px;
 }
 
-.gu-buttons button {
+.guItem {
+  width: 19.5%;
+  height: 100%;
+  display: inline-block;
+  box-sizing: border-box;
   padding: 10px;
   margin: 5px;
+  word-break: keep-all;
+  vertical-align: top;
+  text-align: center;
+  background-color: #f8f8f8;
   border: 0;
-  border-radius: 10px;
-  background-color: #ccc;
-  cursor: pointer;
+  border-radius: 10px 10px 0 0;
   font-size: 17px;
   color: #464646;
   font-family: "Noto Sans KR", sans-serif;
-  font-weight: 600;
-  width: 150px;
-  box-sizing: border-box;
+  font-weight: lighter;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 768px) {
-  .gu-buttons button {
+  .gu-buttons {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .guItem {
     width: 100%;
   }
+}
+
+.guItem:hover {
+  font-weight: bold;
+  color: #0077ff;
+  box-shadow: 1px 1px 7px #005bff;
+  outline: 1px solid rgba(0, 38, 255, 0.705);
 }
 
 /* 관광지 리스트 */
@@ -75,7 +144,9 @@ button[type="submit"] {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  font-size: 16px;
 }
+
 .spots-list {
   list-style: none;
   margin-bottom: 50px;
@@ -107,6 +178,7 @@ button[type="submit"] {
   box-shadow: 1px 1px 7px #005bff;
   text-decoration: underline #464646;
   text-underline-position: under;
+  outline: 1px solid #005bff;
 }
 
 .spot-item p {
@@ -183,7 +255,7 @@ button[type="submit"] {
 }
 
 .nav-buttons button.current {
-  font-weight: bold;
-  background-color: #ccc;
-  color: #fff;
+  font-weight: 400;
+  background-color: #ddd;
+  color: #000;
 }
