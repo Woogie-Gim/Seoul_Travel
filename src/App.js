@@ -2,6 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import TopButton from './components/TopButton';
 import TouristSpot from './components/TouristSpot';
 import Festival from './components/Festival';
 import FestivalDetail from './components/FestivalDetail';
@@ -16,6 +17,7 @@ function App() {
         <Route path={`${process.env.PUBLIC_URL}/festival/:id`} element={<FestivalDetail />} />
       </Routes>
       <Navbar />
+      <TopButton />
     </Router>
   );
 }

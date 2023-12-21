@@ -10,6 +10,7 @@ body {
     color: rgb(29, 29, 31);
     letter-spacing: -0.05em;
     background-color: white;
+    height: 210vh;
 }
 
 p {
@@ -22,7 +23,7 @@ a {
 }
 
 .global-nav {
-    position: fixed;
+    position: absolute;
     z-index: 11;
     top: 0;
     left: 0;
@@ -45,7 +46,7 @@ a {
     font-weight: bold;
 }
 
-.global-nav-links a{
+.global-nav-links a {
     font-size: 1.2 rem;
 }
 
@@ -53,3 +54,115 @@ a {
     margin-left: 2em;
 }
 
+.global-nav-links a:hover {
+    color: #007bff;
+}
+
+.frame-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.title {
+    color: #888;
+}
+
+.main-msg {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    font-size: 5rem;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: #fff;
+}
+
+
+.scroll-section {
+    padding-top: 30vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    text-align: left;
+}
+
+.description {
+    padding: 0 1rem;
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    color: #888;
+}
+
+.description strong {
+    margin-right: 0.2em;
+    font-size: 5rem;
+    color: rgb(29, 29, 31);
+}
+
+.current-time {
+    position: absolute;
+    top: 5%;
+    right: 10%;
+    font-size: 2rem;
+    color: #fff;
+    text-decoration: underline;
+    text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+}
+
+.city-name {
+    position: absolute;
+    top: 8%;
+    right: 10%;
+    font-size: 1.5rem;
+    color: #fff;
+    text-shadow: -2px -2px 2px #000, 2px -2px 2px #000, -2px 2px 2px #000, 2px 2px 2px #000;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 200px;
+  }
+  
+  .button {
+    border: none;
+    cursor: pointer;
+    width: 200px;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: url('../assets/festival button.gif') no-repeat;
+    margin-left: 50px;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.8;
+    color: #fff;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    border-radius: 10px; 
+  }
+  
+  .button:hover {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+  
+  .button.travel {
+    background: url('../assets/travel button.gif') no-repeat;
+    color: black;
+    background-size: cover;
+    background-position: center center;
+  }
+
+  .button:hover .travel {
+    animation: play 1s steps(1) infinite;
+  }
+  
+  @keyframes play {
+    to {
+      background-position: 0 0;
+    }
+  }
